@@ -1,0 +1,34 @@
+public class ContaEspecial: ContaComum
+{
+
+    private double limiteConta;
+
+    public ContaEspecial(double saldo, double limiteConta) : base(saldo)
+    {
+        this.limiteConta = limiteConta;
+    }
+
+    public override abrirConta(int situacaoConta, double valorInicial)
+    {
+        if (situacaoConta == 1)
+        {
+            saldo = valorInicial;
+        }
+        else
+        {
+            saldo = 0;
+        }
+    }
+
+    public override sacar(double valor)
+    {
+        if (valor <= saldo + limiteConta)
+        {
+            saldo -= valor;
+        }
+        else
+        {
+            Console.WriteLine("Saldo insuficiente");
+        }
+    }
+}
